@@ -69,16 +69,15 @@ const PlanTable = ({ searchValue, tableData }) => {
         // previousPage,
         // setPageSize,
         // state: { pageIndex, pageSize },
-        data: tdData
     } = useTable(
         {
             columns,
-            data: data,
+            data,
             initialState: { pageIndex: 0 },
         },
         useFilters,
         useSortBy,
-        usePagination
+        usePagination,
     );
 
 
@@ -93,11 +92,8 @@ const PlanTable = ({ searchValue, tableData }) => {
 
     useEffect(() => {
         setData(tableData)
-        tdData.push(tableData)
-
     }, [tableData]);
 
-    console.log("table state", tdData)
     return (
         <div className="table-container">
             {data && (

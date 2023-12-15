@@ -103,7 +103,7 @@ const Plan = () => {
                 </div>
             </div>
             <ModalSidebar isModalActive={showCreateJobSidebar} closeModalFn={() => setShowCreateJobSidebar(false)}>
-                <CreateJobCard setSidebar={setShowCreateJobSidebar} setTableData={setTableData} />
+                <CreateJobCard setSidebar={setShowCreateJobSidebar} tableData={tableData} setTableData={setTableData} />
             </ModalSidebar>
         </>
     )

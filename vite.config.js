@@ -18,6 +18,7 @@ export default defineConfig({
       Routes: path.resolve(dirname, "./src/routes"),
       Layouts: path.resolve(dirname, "./src/layouts"),
       Data: path.resolve(dirname, "./src/data"),
+      Hooks: path.resolve(dirname, "./src/hooks"),
       Src: path.resolve(dirname, "./src"),
     },
   },

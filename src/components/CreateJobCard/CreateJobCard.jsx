@@ -6,7 +6,7 @@ import { toast } from "react-toastify"
 import { PLANS_DATA } from "Data"
 
 
-const CreateJobCard = ({ setSidebar, setTableData }) => {
+const CreateJobCard = ({ setSidebar, setTableData, tableData }) => {
     const [isUpdating, setIsUpdating] = useState(false);
 
     const schema = yup.object().shape({
@@ -33,17 +33,18 @@ const CreateJobCard = ({ setSidebar, setTableData }) => {
         setIsUpdating(true)
         try {
             console.log(data)
-            setTableData((prev) => [...prev, {
+            const newData = [...tableData, {
                 route: data.route,
                 status: "Not Started",
                 planned_date: data.planDate,
                 treatment: data.treatment,
                 estimated_cost: data.budgetType,
                 owner: "Favour Okoh",
-            }])
+            }]
+            setTableData(newData)
             console.log("PLANS DATA", PLANS_DATA)
 
-            toast.success("Plan Added");
+            toast.success("Job Added");
             reset()
             setSidebar(false);
         } catch (error) {
@@ -109,7 +110,7 @@ const CreateJobCard = ({ setSidebar, setTableData }) => {
                     </div>
                 </div>
                 <div className="flex w-full">
-                    <div className="w-[10%]">test</div>
+                    {/* <div className="w-[10%]">test</div> */}
                     <div className="max-w-[90%] space-y-4">
                         <div>
                             <p className="text-left text-xl text-white font-medium mb-2">Job Type</p>

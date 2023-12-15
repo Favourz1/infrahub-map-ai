@@ -2,7 +2,7 @@
 
 This projects aims at creating a very minimal MVP for infrahub.ai
 
-<!-- Find it live [here](https://rebrand.ly/favourz-codepen) -->
+Find it live [here](https://favourz-infrahub-ai-v1.netlify.app/)
 
 ## ⛓ Features <a name="features"></a>
 
@@ -13,11 +13,11 @@ This projects aims at creating a very minimal MVP for infrahub.ai
 - View a route condition
 - View list of jobs and plan
 - Create new job
-- serach for existing jobs
-- filter list of jobs
-- sort jobs table for better UX
-- select a particular job and perform action
-- uses frontend validation to validate data when creating a job for a route
+- Serach for existing jobs
+- Filter list of jobs
+- Sort jobs table for better UX
+- Select a particular job and perform action
+- Uses frontend validation to validate data when creating a job for a route
 
 ## 📝 Table of Contents
 
@@ -49,9 +49,9 @@ Open your command terminal.
 
 Clone the project
 
-<!-- ```bash
-  git clone https://github.com/Favourz1/Codepen-clone.git
-``` -->
+```bash
+  git clone https://github.com/Favourz1/infrahub-map-ai.git
+```
 
 Go to the project root directory
 
@@ -61,7 +61,7 @@ Go to the project root directory
 
 Creating enviroment variables
 
-- Craete an `env.local` file in the root directory that has your google maps api keys
+- Create an `env.local` file in the root directory that has your google maps api keys
 
 Installing dependencies
 
