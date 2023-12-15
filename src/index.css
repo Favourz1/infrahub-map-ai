@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  font-family: 'Satoshi', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color:white;
+  background-color: #232323;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+*{
+  scrollbar-width: .625rem;
+  box-sizing: border-box;
+  transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+  -webkit-transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+  -moz-transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+  -ms-transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+  -o-transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+}
+
+*::selection{
+  color: white;
+  background-color: #3888FF;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #979BA6;
+  border-radius: 12px;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.scrollbar-tiny::-webkit-scrollbar {
+   width: 5px;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.table-container table {
+  min-width: 100%;
+}
+
+.table-container table th {
+  padding: 10px 20px;
+  white-space: nowrap;
+  text-align: left;
+  position: relative;
+  margin-bottom: 48px !important;
+}
+
+.table-container table th:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7.91944 12.3312L7.91904 12.3308C7.91324 12.325 7.90635 12.3204 7.89876 12.3173L8.09023 11.8554L7.89876 12.3173C7.89117 12.3141 7.88304 12.3125 7.87482 12.3125C7.86661 12.3125 7.85848 12.3141 7.85089 12.3173L7.65942 11.8554L7.85089 12.3173C7.8433 12.3204 7.83641 12.325 7.83061 12.3308L7.8305 12.3309L6.54097 13.6212L5.68732 14.4753V13.2677V3.37544C5.68732 3.35887 5.68074 3.34297 5.66902 3.33125C5.6573 3.31953 5.6414 3.31294 5.62482 3.31294C5.60825 3.31294 5.59235 3.31953 5.58063 3.33125C5.56891 3.34297 5.56232 3.35887 5.56232 3.37544V13.2677V14.4753L4.70867 13.6212L3.41924 12.331L7.91944 12.3312ZM7.91944 12.3312C7.92525 12.337 7.92986 12.3439 7.933 12.3515C7.93615 12.3591 7.93777 12.3672 7.93777 12.3754C7.93777 12.3837 7.93615 12.3918 7.933 12.3994C7.92986 12.407 7.92525 12.4139 7.91944 12.4197L7.91924 12.4199M7.91944 12.3312L7.91924 12.4199M7.91924 12.4199L5.66924 14.6699L5.66904 14.6701M7.91924 12.4199L5.66904 14.6701M5.66904 14.6701C5.66324 14.6759 5.65635 14.6805 5.64876 14.6836C5.64118 14.6868 5.63304 14.6884 5.62482 14.6884C5.61661 14.6884 5.60847 14.6868 5.60089 14.6836C5.5933 14.6805 5.58641 14.6759 5.58061 14.6701L5.58041 14.6699M5.66904 14.6701L5.58041 14.6699M5.58041 14.6699L3.33041 12.4199L2.9775 12.7728M5.58041 14.6699L2.9775 12.7728M2.9775 12.7728L3.33041 12.4199C3.32458 12.414 3.31995 12.4071 3.31679 12.3995C3.31364 12.3919 3.31201 12.3837 3.31201 12.3754C3.31201 12.3672 3.31364 12.359 3.31679 12.3514C3.31995 12.3438 3.32458 12.3369 3.33041 12.331L2.97686 11.9775M2.9775 12.7728L2.97686 11.9775M2.97686 11.9775L3.33041 12.331C3.34219 12.3192 3.35817 12.3126 3.37482 12.3126M2.97686 11.9775L3.37482 12.3126M3.37482 12.3126C3.38307 12.3126 3.39124 12.3143 3.39887 12.3174M3.37482 12.3126L3.39887 12.3174M3.39887 12.3174C3.40644 12.3205 3.41333 12.3251 3.41914 12.3309L3.39887 12.3174ZM12.419 3.33083L12.4192 3.33103L14.6692 5.58103C14.681 5.59281 14.6876 5.60878 14.6876 5.62544C14.6876 5.6421 14.681 5.65808 14.6692 5.66986C14.6575 5.68164 14.6415 5.68826 14.6248 5.68826C14.6082 5.68826 14.5922 5.68164 14.5804 5.66986L13.291 4.37972L12.4373 3.52560V4.73318V14.6254C12.4373 14.6420 12.4307 14.6579 12.419 14.6696C12.4073 14.6814 12.3914 14.6879 12.3748 14.6879C12.3582 14.6879 12.3424 14.6814 12.3306 14.6696L11.9771 15.0232L12.3306 14.6696C12.3189 14.6579 12.3123 14.6420 12.3123 14.6254V4.73318V3.5256L11.4587 4.37972L10.1692 5.66986C10.1692 5.66987 10.1692 5.66988 10.1692 5.6699C10.1574 5.68165 10.1415 5.68826 10.1248 5.68826C10.1082 5.68826 10.0922 5.68164 10.0804 5.66986C10.0686 5.65808 10.0620 5.6421 10.062 5.62544C10.062 5.60878 10.0686 5.59281 10.0804 5.58103L12.3304 3.33103L12.3306 3.33083C12.3364 3.32502 12.3433 3.32041 12.3509 3.31726C12.3585 3.31412 12.3666 3.3125 12.3748 3.3125C12.3830 3.3125 12.3912 3.31412 12.3988 3.31726C12.4063 3.32041 12.4132 3.32502 12.4190 3.33083Z" fill="#393939" stroke="#393939"/></svg>');
+  background-size: cover;
+  position: relative;
+  right: -50%;
+}
+
+.table-container table td {
+  padding: 10px 20px;
+  white-space: nowrap;
+  text-align: left;
+}
+
+td:has(a) {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+
+/* .Toastify__toast-theme--dark{
+  background-color: #232323 !important;
+} */
+
+/* animations */
+.slide-in-fwd-center {
+  -webkit-animation: slide-in-fwd-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-in-fwd-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+/* keyframes */
+
+@-webkit-keyframes slide-in-fwd-center {
+  0% {
+    -webkit-transform: translateZ(-1400px);
+            transform: translateZ(-1400px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-fwd-center {
+  0% {
+    -webkit-transform: translateZ(-1400px);
+            transform: translateZ(-1400px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+}
+
+
+
+/* @media (prefers-color-scheme: light) {
+  
+} */
