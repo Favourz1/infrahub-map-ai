@@ -1,7 +1,10 @@
 import { createContext, useReducer } from 'react';
+import { PLANS_DATA } from "Data"
+
 
 const initialState = {
     isSidebarOpen: false,
+    tableData: PLANS_DATA,
 };
 
 export const GlobalContext = createContext(initialState);
@@ -12,6 +15,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 isSidebarOpen: action.payload,
+            };
+        case 'SET_TABLE_DATA':
+            return {
+                ...state,
+                tableData: [...state.tableData, ...action.payload],
             };
         default:
             return state;

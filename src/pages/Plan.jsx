@@ -1,9 +1,10 @@
 import { PlanTable } from "Components/PlanTable"
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { ModalSidebar } from "Components/ModalSidebar";
 import { CreateJobCard } from "Components/CreateJobCard";
-import { PLANS_DATA } from "Data"
+// import { PLANS_DATA } from "Data"
+import { GlobalContext } from "Context/Global";
 
 
 
@@ -11,7 +12,9 @@ const Plan = () => {
     const [filterInput, setFilterInput] = useState("");
     const [isPlanActive, setIsPlanActive] = useState(true);
     const [showCreateJobSidebar, setShowCreateJobSidebar] = useState(false);
-    const [tableData, setTableData] = useState(PLANS_DATA);
+    // const [tableData, setTableData] = useState(PLANS_DATA);
+    const { state, dispatch } = useContext(GlobalContext);
+
 
     const navigate = useNavigate()
 
@@ -24,9 +27,9 @@ const Plan = () => {
 
     return (
         <>
-            <div className={`bg-[#232323] min-w-full p-12 ${isPlanActive ? "translate-y-0" : "-translate-y-full"}`}>
+            <div className={`bg-[#232323] min-w-full py-12 ${isPlanActive ? "translate-y-0" : "-translate-y-full"}`}>
                 {/* HEADERS */}
-                <div className="sticky top-0 z-20 bg-[#232323] py-3 flex items-center justify-between w-full mb-6">
+                <div className="sticky top-0 z-20 px-12 bg-[#232323] py-3 flex items-center justify-between w-full mb-6">
                     <h1 className="font-medium text-3xl text-white">Plan</h1>
                     <div className="flex items-center bg-primaryBlack rounded-lg border-secondaryBlack">
                         <span className="px-4 py-3 bg-primaryBlue rounded-lg">
@@ -42,7 +45,7 @@ const Plan = () => {
                         </span>
                     </div>
                 </div>
-                <div className="flex items-center justify-between w-full mb-10">
+                <div className="flex items-center justify-between px-12 w-full mb-10">
                     {/* Create Job buttons */}
                     <div className="flex items-center gap-4">
                         <button
@@ -98,12 +101,12 @@ const Plan = () => {
 
                 </div>
 
-                <div className="animate-fadeInLeft">
-                    <PlanTable searchValue={filterInput} tableData={tableData} />
+                <div className="animate-fadeInLeft px-12">
+                    <PlanTable searchValue={filterInput} tableData={state?.tableData} />
                 </div>
             </div>
             <ModalSidebar isModalActive={showCreateJobSidebar} closeModalFn={() => setShowCreateJobSidebar(false)}>
-                <CreateJobCard setSidebar={setShowCreateJobSidebar} tableData={tableData} setTableData={setTableData} />
+                <CreateJobCard setSidebar={setShowCreateJobSidebar} tableData={state.tableData} setTableData={dispatch} />
             </ModalSidebar>
         </>
     )

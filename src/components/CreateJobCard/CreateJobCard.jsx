@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { toast } from "react-toastify"
-import { PLANS_DATA } from "Data"
 
 
 const CreateJobCard = ({ setSidebar, setTableData, tableData }) => {
@@ -29,26 +28,28 @@ const CreateJobCard = ({ setSidebar, setTableData, tableData }) => {
 
     const { handleSubmit, register, formState, reset } = methods;
 
-    function onSubmit(data) {
+    async function onSubmit(data) {
         setIsUpdating(true)
         try {
-            console.log(data)
-            const newData = [...tableData, {
+            // console.log(data)
+            const newData = [{
                 route: data.route,
                 status: "Not Started",
-                planned_date: data.planDate,
-                treatment: data.treatment,
-                estimated_cost: data.budgetType,
+                planned_date: data.planDate.split("-")[0],
+                treatment: data.budgetType,
+                estimated_cost: data.treatment,
                 owner: "Favour Okoh",
             }]
-            setTableData(newData)
-            console.log("PLANS DATA", PLANS_DATA)
+            if (JSON.stringify(newData) !== JSON.stringify(tableData)) {
+                setTableData({ type: 'SET_TABLE_DATA', payload: newData })
+            }
 
-            toast.success("Job Added");
             reset()
+            toast.success("Job Added");
             setSidebar(false);
         } catch (error) {
             console.log(error)
+            // toast.error(`${error}`);
         }
         setIsUpdating(false)
     }

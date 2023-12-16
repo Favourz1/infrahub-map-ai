@@ -61,19 +61,19 @@ const PlanTable = ({ searchValue, tableData }) => {
         setFilter,
         // Pagination utilities
         // canPreviousPage,
-        // canNextPage,
+        canNextPage,
         // pageOptions,
         // pageCount,
         // gotoPage,
-        // nextPage,
+        nextPage,
         // previousPage,
         // setPageSize,
         // state: { pageIndex, pageSize },
     } = useTable(
         {
             columns,
-            data,
-            initialState: { pageIndex: 0 },
+            data: useMemo(() => { return data }, [data]),
+            initialState: { pageIndex: 0, pageSize: 90 },
         },
         useFilters,
         useSortBy,
@@ -91,7 +91,14 @@ const PlanTable = ({ searchValue, tableData }) => {
     }, [searchValue]);
 
     useEffect(() => {
-        setData(tableData)
+        if (JSON.stringify(data) !== JSON.stringify(tableData)) {
+            setData(tableData)
+        }
+        if (canNextPage) {
+            nextPage()
+        }
+        // setPageSize(100)
+        // setData(tableData)
     }, [tableData]);
 
     return (

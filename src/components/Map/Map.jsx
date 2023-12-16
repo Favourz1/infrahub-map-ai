@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useRef } from "react";
+import { useState, useMemo, useCallback, useRef, useContext } from "react";
 import {
     GoogleMap,
     Marker,
@@ -9,12 +9,21 @@ import {
 import { ModalSidebar } from "Components/ModalSidebar";
 import { PositionDetailsCard } from "Components/PositionDetailsCard";
 import { RoutePicInfo } from "Components/RoutePicInfo";
+import { CreateJobCard } from "Components/CreateJobCard";
+import { GlobalContext } from "Context/Global";
+
+
+
 
 export default function Map() {
     const [office, setOffice] = useState();
     const [directions, setDirections] = useState();
     const [showRouteSidebar, setShowRouteSidebar] = useState(false);
     const [showRouteInfoPopup, setShowRouteInfoPopup] = useState(false);
+    const [showCreateJobSidebar, setShowCreateJobSidebar] = useState(false);
+    const { state, dispatch } = useContext(GlobalContext);
+
+
     const mapRef = useRef();
     const center = useMemo(() => ({ lat: 43.45, lng: -80.49 }), []);
     const options = useMemo(
@@ -84,9 +93,13 @@ export default function Map() {
             </div>
 
             <ModalSidebar isModalActive={showRouteSidebar} closeModalFn={() => setShowRouteSidebar(false)} isPositionLeft={false}>
-                <PositionDetailsCard />
+                <PositionDetailsCard setShowCreateJobSidebar={setShowCreateJobSidebar} />
             </ModalSidebar>
             <RoutePicInfo isActive={showRouteInfoPopup} closeFn={() => setShowRouteInfoPopup(false)} />
+            <ModalSidebar isModalActive={showCreateJobSidebar} closeModalFn={() => setShowCreateJobSidebar(false)} isPositionLeft={true}>
+                <CreateJobCard setSidebar={setShowCreateJobSidebar} tableData={state?.tableData} setTableData={dispatch} />
+            </ModalSidebar>
+
         </div>
     );
 }

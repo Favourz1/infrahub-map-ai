@@ -16,19 +16,19 @@ const ModalSidebar = (
 
   const { state } = useContext(GlobalContext);
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (modalRef.current && !modalRef.current.contains(e.target)) {
-        closeModalFn();
-      }
-    };
+  // useEffect(() => {
+  //   const handleClickOutside = (e) => {
+  //     if (modalRef.current && !modalRef.current.contains(e.target)) {
+  //       closeModalFn();
+  //     }
+  //   };
 
-    document.addEventListener('mousedown', handleClickOutside);
+  //   document.addEventListener('mousedown', handleClickOutside);
 
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener('mousedown', handleClickOutside);
+  //   };
+  // }, []);
 
   useEffect(() => {
     if (isModalActive && modalRef) {
@@ -61,7 +61,7 @@ const ModalSidebar = (
       <div className="scrollbar-hidden relative overflow-hidden !max-w-[35%] max-h-[95vh] md:max-h-[73vh] px-4 h-full">
 
         {/* Modal Content */}
-        <div ref={modalRef} autoFocus className={`overflow-hidden overflow-y-auto scrollbar-tiny w-full ${isPositionLeft ? "left-0 bottom-0 border-r-2 border-r-[#2C2C2C]" : "right-0 bottom-0 mr-[50px] border-l-2 border-l-[#2C2C2C]"} ${state.isSidebarOpen && !isPositionLeft ? "mr-[155px]" : "mr-[50px]"} ${customWidthInTw} px-4 pb-2 fixed z-[99] bg-[#232323] rounded-lg h-[95vh] md:h-[73vh] block items-center text-center shadow-xl transition-all ${isModalActive ? "translate-x-0" : "-translate-x-full hidden"}`}
+        <div ref={modalRef} autoFocus className={`overflow-hidden overflow-y-auto scrollbar-tiny w-full ${isPositionLeft ? "left-0 bottom-0 border-r-2 border-r-[#2C2C2C]" : "right-0 bottom-0 mr-[50px] border-l-2 border-l-[#2C2C2C]"} ${state.isSidebarOpen && !isPositionLeft ? "mr-[157px]" : "mr-[50px]"} ${customWidthInTw} px-4 pb-2 fixed z-[99] bg-[#232323] rounded-lg h-[95vh] md:h-[73vh] block items-center text-center shadow-xl transition-all ${isModalActive ? "translate-x-0" : "-translate-x-full hidden"}`}
           style={{ scrollbarWidth: "2px" }}
         >
 
